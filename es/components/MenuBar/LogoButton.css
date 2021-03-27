@@ -1,0 +1,13 @@
+.logo {
+    width: 50px;
+    vertical-align: middle;
+}
+
+.logo-image {
+    max-width: 100px;
+    max-height: 80%;
+    width: auto;
+    height: auto;
+    margin-top: 1px;
+}
+
