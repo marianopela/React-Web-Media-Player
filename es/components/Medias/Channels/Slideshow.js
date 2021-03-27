@@ -6,8 +6,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { TitleBar } from "../../TitleBar/TitleBar";
 var MINIMUM_BUFFERED_TIME = 2; //buffered time to be loaded before launching the slideshow in seconds
 
 var REFRESH_TIME_IN_MILLISECONDS = 10;
@@ -45,7 +46,7 @@ var Slideshow = /*#__PURE__*/function (_Component) {
 
             if (_this.hasEnoughBuffered(_this.startTime) && !_this.props.isSlideshowReady) {
               _this.props.dispatch({
-                type: 'SLIDESHOW_IS_READY'
+                type: "SLIDESHOW_IS_READY"
               });
             }
           };
@@ -53,7 +54,7 @@ var Slideshow = /*#__PURE__*/function (_Component) {
           image.src = _this.props.slideshow[i].img;
 
           _this.props.dispatch({
-            type: 'ADD_IMAGE',
+            type: "ADD_IMAGE",
             payload: {
               index: i,
               image: image
@@ -68,7 +69,7 @@ var Slideshow = /*#__PURE__*/function (_Component) {
     _defineProperty(_assertThisInitialized(_this), "play", function () {
       if (!_this.hasEnoughBuffered(_this.currentTime)) {
         _this.props.dispatch({
-          type: 'SLIDESHOW_IS_NOT_READY'
+          type: "SLIDESHOW_IS_NOT_READY"
         });
 
         _this.load(_this.currentTime);
@@ -76,7 +77,7 @@ var Slideshow = /*#__PURE__*/function (_Component) {
         return;
       } else {
         _this.props.dispatch({
-          type: 'SLIDESHOW_IS_READY'
+          type: "SLIDESHOW_IS_READY"
         });
       }
 
@@ -97,7 +98,7 @@ var Slideshow = /*#__PURE__*/function (_Component) {
 
       if (!_this.hasEnoughBuffered(time)) {
         _this.props.dispatch({
-          type: 'SLIDESHOW_IS_NOT_READY'
+          type: "SLIDESHOW_IS_NOT_READY"
         });
 
         _this.load(time);
@@ -105,7 +106,7 @@ var Slideshow = /*#__PURE__*/function (_Component) {
         _this.updateView();
 
         _this.props.dispatch({
-          type: 'SLIDESHOW_IS_READY'
+          type: "SLIDESHOW_IS_READY"
         });
       }
 
@@ -198,7 +199,7 @@ var Slideshow = /*#__PURE__*/function (_Component) {
       for (var i = 0; i < _this.props.slideshow.length; ++i) {
         if (_this.currentTime < _this.props.slideshow[i].endTime) {
           _this.props.dispatch({
-            type: 'UPDATE_IMAGE_DISPLAYED',
+            type: "UPDATE_IMAGE_DISPLAYED",
             payload: {
               imageDisplayed: _this.props.slideshow[i]
             }
@@ -248,7 +249,7 @@ var Slideshow = /*#__PURE__*/function (_Component) {
     _defineProperty(_assertThisInitialized(_this), "refresh", function () {
       if (!_this.hasEnoughBuffered(_this.currentTime)) {
         _this.props.dispatch({
-          type: 'SLIDESHOW_IS_NOT_READY'
+          type: "SLIDESHOW_IS_NOT_READY"
         });
 
         _this.load(_this.currentTime);
@@ -378,14 +379,16 @@ var Slideshow = /*#__PURE__*/function (_Component) {
         src = _this.props.imageDisplayed.img;
       }
 
-      return /*#__PURE__*/React.createElement("img", {
+      return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("img", {
         style: imageSliderStyle,
         src: src,
         ref: function ref(imageSlider) {
           return _this.imageSlider = imageSlider;
         },
         alt: ""
-      });
+      }), _this.props.imageDisplayed && _this.props.imageDisplayed.alt && /*#__PURE__*/React.createElement(TitleBar, {
+        title: _this.props.imageDisplayed.alt
+      }));
     });
 
     _this.currentTime = 0;

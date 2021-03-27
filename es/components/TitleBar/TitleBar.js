@@ -6,11 +6,10 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import './TitleBar.css';
-
-var TitleBar = /*#__PURE__*/function (_Component) {
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import "./TitleBar.css";
+export var TitleBar = /*#__PURE__*/function (_Component) {
   _inheritsLoose(TitleBar, _Component);
 
   function TitleBar() {
@@ -42,11 +41,11 @@ var TitleBar = /*#__PURE__*/function (_Component) {
         }, _this.props.title);
       }
       /*
-      <div class="salefi-player-title-container">
-          <a class="salefi-player-title light-grey-to-white" href="#" target="_blank">Product name - Store name</a>
-          <div class="salefi-player-top-shading"></div>
-          </div>
-      */
+          <div class="salefi-player-title-container">
+              <a class="salefi-player-title light-grey-to-white" href="#" target="_blank">Product name - Store name</a>
+              <div class="salefi-player-top-shading"></div>
+              </div>
+          */
 
 
       return /*#__PURE__*/React.createElement("div", {
