@@ -17,7 +17,7 @@ class ReactWebMediaPlayer extends Component {
     return true;
   }
 
-  componentWillMount = () => {
+  UNSAFE_componentWillMount = () => {
     this.store = (this.props.store !== undefined) ? this.props.store : createStore(reducer);
     this.store.dispatch({ type: 'INIT_STATE', payload: { state: getInitState(this.props) } });
   }

@@ -356,7 +356,7 @@ var Mixer = /*#__PURE__*/function (_Component) {
       return true;
     });
 
-    _defineProperty(_assertThisInitialized(_this), "componentWillMount", function () {
+    _defineProperty(_assertThisInitialized(_this), "UNSAFE_componentWillMount", function () {
       if (_this.props.autoplay) {
         window.addEventListener('load', function () {
           _this.props.dispatch({

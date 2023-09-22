@@ -32,7 +32,7 @@ var ReactWebMediaPlayer = /*#__PURE__*/function (_Component) {
       return true;
     });
 
-    _defineProperty(_assertThisInitialized(_this), "componentWillMount", function () {
+    _defineProperty(_assertThisInitialized(_this), "UNSAFE_componentWillMount", function () {
       _this.store = _this.props.store !== undefined ? _this.props.store : createStore(reducer);
 
       _this.store.dispatch({

@@ -241,7 +241,7 @@ class Mixer extends Component {
         return true;
     }
 
-    componentWillMount = () => {
+    UNSAFE_componentWillMount = () => {
         if (this.props.autoplay) {
             window.addEventListener('load', () => {
                 this.props.dispatch({ type: 'INITIALIZE_PLAYER' });
